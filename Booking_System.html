@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ms">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +37,8 @@
                             <div class="form-column">
                                 <div class="form-group">
                                     <span class="form-label">Nama Peminjam:</span>
-                                    <input class="form-control" type="text" name="NamaPeminjam" placeholder="Masukkan Nama Anda" required>
+                                    <input class="form-control" type="text" name="NamaPeminjam"
+                                        placeholder="Masukkan Nama Anda" required>
                                 </div>
                                 <div class="form-group">
                                     <span class="form-label">Site (Peminjam):</span>
@@ -85,11 +87,13 @@
                             <div class="form-column">
                                 <div class="form-group">
                                     <span class="form-label">Tujuan Penerbangan:</span>
-                                    <input class="form-control" type="text" name="TujuanPenerbangan" placeholder="Cth: Pemeriksaan Gutter" required>
+                                    <input class="form-control" type="text" name="TujuanPenerbangan"
+                                        placeholder="Cth: Pemeriksaan Gutter" required>
                                 </div>
                                 <div class="form-group">
                                     <span class="form-label">Lokasi Penerbangan:</span>
-                                    <input class="form-control" type="text" name="LokasiPenerbangan" placeholder="Cth: Hospital Tuanku Jaafar" required>
+                                    <input class="form-control" type="text" name="LokasiPenerbangan"
+                                        placeholder="Cth: Hospital Tuanku Jaafar" required>
                                 </div>
                                 <div class="form-group flex gap-3">
                                     <div class="w-1/2">
@@ -129,12 +133,47 @@
     </div>
     <a href="PANDUAN MENGISI BORANG PINJAMAN DRONE.pdf" target="_blank" id="panduan-btn" class="floating-btn">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd" />
         </svg>
         <span class="ml-2 hidden sm:inline">Panduan Penggunaan</span>
     </a>
 
     <script src="script.js"></script>
+    <div id="return-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="text-xl font-bold mb-4 text-center">PULANGKAN DRONE</h2>
+
+            <p class="mb-4">Sila pilih cara pulangan drone ini:</p>
+
+            <div class="flex flex-col gap-3 mb-4">
+                <button id="option-htj"
+                    class="option-btn bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded">
+                    1. Pulang ke HTJ (Base)
+                </button>
+                <button id="option-next"
+                    class="option-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded">
+                    2. Serah kepada Pengguna Seterusnya
+                </button>
+            </div>
+
+            <div id="next-user-input" style="display:none;" class="mt-4 p-4 border border-gray-600 rounded">
+                <label for="next-peminjam-input" class="form-label mb-2">Nama Peminjam Seterusnya (Wajib):</label>
+                <input type="text" id="next-peminjam-input" class="form-control" placeholder="Cth: Ahmad Bin Ali">
+                <button id="confirm-next-btn" class="submit-btn bg-blue-500 hover:bg-blue-600 text-white mt-4 py-2"
+                    style="height: auto;">
+                    Sahkan Penyerahan
+                </button>
+            </div>
+
+            <button id="confirm-htj-btn" class="submit-btn bg-green-500 hover:bg-green-600 text-white mt-4 py-2"
+                style="height: auto; display: none;">
+                Sahkan Pulangan ke HTJ
+            </button>
+        </div>
+    </div>
 </body>
+
 </html>
- 

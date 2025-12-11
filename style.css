@@ -188,19 +188,20 @@
 
 
 .status-pending {
-    background-color: #f59e0b;
+    background-color: #f59e0b; /* Kuning/Jingga: Sedang Digunakan (Default) */
 }
 
 .status-pulang {
-    background-color: #5aeb00;
+    background-color: #5aeb00; /* Hijau: Telah Dipulangkan */
 }
 
 .status-rosak {
     background-color: #ef4444;
 }
 
-.status-kosong {
-    background-color: #4b5563;
+/* 🛑 Warna untuk status BOOKED (masa depan) */
+.status-kosong { 
+    background-color: #4b5563; /* Kelabu: BOOKED */
 }
 
 /* Responsif */
@@ -211,7 +212,6 @@
 }
 
 /* KOD BARU UNTUK MEMBETULKAN TARIKH/MASA BERCANTUM DI MOBILE */
-/* Sasarkan div yang mengandungi Tarikh Ambil dan Masa Ambil */
 .form-group.flex {
     /* Benarkan flexbox untuk membungkus (wrap) */
     flex-wrap: wrap; 
@@ -264,4 +264,65 @@
     .floating-btn span {
         display: none !important; /* Sembunyikan teks pada mobile */
     }
+}
+
+/* style.css - Tambah di bahagian bawah */
+
+/* Gaya Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.7); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #1e1f23;
+    margin: 5% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Gaya Option Button */
+.option-btn {
+    transition: transform 0.1s ease-in-out;
+}
+
+.option-btn:hover {
+    transform: scale(1.02);
+}
+
+.option-btn.selected {
+    border: 3px solid #ffc001; /* Highlight option yang dipilih */
+    box-shadow: 0 0 10px #ffc001;
+}
+
+/* Sesuaikan gaya submit-btn di modal */
+#confirm-next-btn, #confirm-htj-btn {
+    width: 100%;
 }
