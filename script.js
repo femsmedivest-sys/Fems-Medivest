@@ -87,16 +87,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Susun data: Aktif (SEDANG DIGUNAKAN), BOOKED, kemudian TELAH DIPULANGKAN
-            const list = result.data.sort((a, b) => {
-                // Berikan 'weight' untuk sorting
+            // Dapatkan data mentah
+            const rawData = result.data;
+
+            // Susun data menggunakan sorting dua peringkat
+            const list = rawData.sort((a, b) => {
+                // ----------------------------------------------------
+                // Peringkat 1: Susun mengikut Status (Aktif di atas)
+                // ----------------------------------------------------
                 const getSortWeight = (status) => {
                     if (status === "SEDANG DIGUNAKAN") return 1;
                     if (status === "BOOKED") return 2;
-                    return 3; // Telah Dipulangkan
+                    return 3; // Telah Dipulangkan (paling bawah)
                 };
 
-                return getSortWeight(a.Status) - getSortWeight(b.Status);
+                const weightA = getSortWeight(a.Status);
+                const weightB = getSortWeight(b.Status);
+
+                if (weightA !== weightB) {
+                    return weightA - weightB; // Susun mengikut Status
+                }
+
+                // ----------------------------------------------------
+                // Peringkat 2: Jika status sama, susun mengikut Row Number (terbaru di atas)
+                // ----------------------------------------------------
+                // Nombor baris (b.row) yang lebih besar bermaksud rekod yang lebih baharu
+                return b.row - a.row;
             });
 
             container.innerHTML = "";
